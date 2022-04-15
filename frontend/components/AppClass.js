@@ -15,7 +15,8 @@ export default class AppClass extends React.Component {
       // '1,2','2,2','3,2',
       // '1,3','2,3','3,3',
     message: '',
-    squaring: document.getElementsByClassName('square')
+    email: '',
+    naming: ''
   };
 
   handleLeft = () => {
@@ -36,42 +37,42 @@ export default class AppClass extends React.Component {
           square[2].classList.toggle('active')
           newGrid[1]='B';
           square[1].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`, message: ''})
           break;
         case newGrid[1]:
           newGrid[1]='';
           square[1].classList.toggle('active')
           newGrid[0]='B';
           square[0].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,1)`, message: ''})
           break;
         case newGrid[5]:
           newGrid[5]='';
           square[5].classList.toggle('active')
           newGrid[4]='B';
           square[4].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`, message: ''})
           break;
         case newGrid[4]:
           newGrid[4]='';
           square[4].classList.toggle('active')
           newGrid[3]='B';
           square[3].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`, message: ''})
           break;
         case newGrid[8]:
           newGrid[8]='';
           square[8].classList.toggle('active')
           newGrid[7]='B';
           square[7].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`, message: ''})
           break;
         case newGrid[7]:
           newGrid[7]='';
           square[7].classList.toggle('active')
           newGrid[6]='B';
           square[6].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,3)`, message: ''})
           break;
       }
 
@@ -95,42 +96,42 @@ export default class AppClass extends React.Component {
           square[6].classList.toggle('active')
           newGrid[3]='B';
           square[3].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`, message: ''})
           break;
         case newGrid[7]:
           newGrid[7]='';
           square[7].classList.toggle('active')
           newGrid[4]='B';
           square[4].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`, message: ''})
           break;
         case newGrid[8]:
           newGrid[8]='';
           square[8].classList.toggle('active')
           newGrid[5]='B';
           square[5].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`, message: ''})
           break;
         case newGrid[3]:
           newGrid[3]='';
           square[3].classList.toggle('active')
           newGrid[0]='B';
           square[0].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,1)`, message: ''})
           break;
         case newGrid[4]:
           newGrid[4]='';
           square[4].classList.toggle('active')
           newGrid[1]='B';
           square[1].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`, message: ''})
           break;
         case newGrid[5]:
           newGrid[5]='';
           square[5].classList.toggle('active')
           newGrid[2]='B';
           square[2].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,1)`, message: ''})
           break;
       }
 
@@ -154,42 +155,42 @@ export default class AppClass extends React.Component {
           square[0].classList.toggle('active')
           newGrid[1]='B';
           square[1].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,1)`, message: ''})
           break;
         case newGrid[1]:
           newGrid[1]='';
           square[1].classList.toggle('active')
           newGrid[2]='B';
           square[2].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,1)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,1)`, message: ''})
           break;
         case newGrid[3]:
           newGrid[3]='';
           square[3].classList.toggle('active')
           newGrid[4]='B';
           square[4].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`, message: ''})
           break;
         case newGrid[4]:
           newGrid[4]='';
           square[4].classList.toggle('active')
           newGrid[5]='B';
           square[5].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`, message: ''})
           break;
         case newGrid[6]:
           newGrid[6]='';
           square[6].classList.toggle('active')
           newGrid[7]='B';
           square[7].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`, message: ''})
           break;
         case newGrid[7]:
           newGrid[7]='';
           square[7].classList.toggle('active')
           newGrid[8]='B';
           square[8].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`, message: ''})
           break;
       }
 
@@ -214,41 +215,41 @@ export default class AppClass extends React.Component {
           square[0].classList.toggle('active')
           newGrid[3]='B';
           square[3].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,2)`, message: ''})
           break;
         case newGrid[1]:
           newGrid[1]='';
           square[1].classList.toggle('active')
           newGrid[4]='B';
           square[4].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,2)`, message: ''})
           break;
         case newGrid[2]:
           newGrid[2]='';
           square[2].classList.toggle('active')
           newGrid[5]='B';
           square[5].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,2)`, message: ''})
           break;
         case newGrid[3]:
           newGrid[3]='';
           square[3].classList.toggle('active')
           newGrid[6]='B';
           square[6].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(1,3)`, message: ''})
           break;
         case newGrid[4]:
           newGrid[4]='';
           square[4].classList.toggle('active')
           newGrid[7]='B';
           square[7].classList.toggle('active')
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(2,3)`, message: ''})
           break;
         case newGrid[5]:
           newGrid[5]='';
           square[5].classList.toggle('active')
           newGrid[8]='B';
-          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`})
+          this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`, message: ''})
           break;
       }
     
@@ -275,13 +276,29 @@ export default class AppClass extends React.Component {
     square[4].classList.add('active')
   }
 
+  handleInput(event){
+    const { name, value, } = event.target
+
+    this.setState({...this.state, [name]: value, naming: value})
+  }
+
   handleSubmit(e){
+    const random = Math.floor(Math.random()* (this.state.playerMovement * 3))
     e.preventDefault()
+    if (this.state.email === '') {
+      this.setState({...this.state, message: 'Ouch: email is required'})
+    } else {this.setState({...this.state, message: `${this.state.naming} win#${random}`, email: ''})}
+    
+  }
+
+  componentDidMount(){
+    const square = document.getElementsByClassName('square')
+    square[4].classList.add('active')
   }
 
   render() {
     const { className } = this.props
-    const square = document.getElementsByClassName('square')
+    // const square = document.getElementsByClassName('square')
     // square[4].classList.add('active')
     return (
       <div id="wrapper" className={className}>
@@ -317,7 +334,7 @@ export default class AppClass extends React.Component {
           <button id="reset" onClick={()=>{this.handleReset()}} >reset</button>
         </div>
         <form>
-          <input id="email" type="email" placeholder="type email"></input>
+          <input id="email" type="email" placeholder="type email" name='email' value={this.state.email} onChange={(e)=>{this.handleInput(e)}}></input>
           <input id="submit" type="submit" onClick={(e)=>{this.handleSubmit(e)}} ></input>
         </form>
       </div>
