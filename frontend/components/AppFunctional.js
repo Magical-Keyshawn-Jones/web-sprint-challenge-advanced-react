@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import * as yup from 'yup';
 
 export default function AppFunctional(props) {
 
   const junk = {
     playerMovement: 0,
-    coordinates: `2,2`,
+    coordinates: `(2,2)`,
     grid: ['', '','','', 'B','','', '',''],
     message: '',
     email: '',
@@ -12,10 +13,35 @@ export default function AppFunctional(props) {
   }
   const [ stuff, setStuff ] = useState(junk)
 
+    const great = stuff.coordinates
+
+    const xur = Number(great[1])
+
+    const yikes = Number(great[3])
+
+    const steps = stuff.playerMovement
+
+    const emailing = stuff.naming
+
+    console.log(xur)
+    console.log(yikes)
+
+  const code = (((xur + 1) * (yikes + 2)) * (steps + 1)) + emailing.length
+
   useEffect(()=>{
     const square = document.getElementsByClassName('square')
     square[4].classList.add('active')
   },[])
+
+  const yup = require('yup')
+  const formTest = yup.object().shape({
+    email: yup
+    .string()
+    .trim()
+    .email('email must be a valid email')
+    .required('email is required')
+    .max(100, 'email must be under 100 chars'),
+  })
 
   function handleLeft () {
     const number = stuff.grid.indexOf('B')
@@ -75,7 +101,7 @@ export default function AppFunctional(props) {
     }
   }
 
-  function handUp () {
+  function handleUp () {
     const number = stuff.grid.indexOf('B')
     const player = stuff.playerMovement
     const newGrid = stuff.grid
@@ -243,6 +269,7 @@ export default function AppFunctional(props) {
         newGrid[5]='';
         square[5].classList.toggle('active')
         newGrid[8]='B';
+        square[8].classList.toggle('active')
         setStuff({...stuff, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`, message: ''})
         break;
     }
@@ -255,6 +282,7 @@ export default function AppFunctional(props) {
       playerMovement: 0,
       message: '',
       coordinates: `(2,2)`,
+      email: ''
     })
     square[0].classList.remove('active')
     square[1].classList.remove('active')
@@ -269,11 +297,31 @@ export default function AppFunctional(props) {
     square[4].classList.add('active')
   }
 
+  function handleInput(event){
+    const { name, value, } = event.target
+
+    setStuff({...stuff, [name]: value, naming: value})
+  }
+
+  function handleSubmit(e){
+    console.log(stuff.naming.length)
+    const awesomePerson = stuff.naming
+    const result = awesomePerson.split('@')[0]
+    e.preventDefault()
+    if (stuff.email === '') {
+      setStuff({...stuff, message: 'Ouch: email is required', email: ''})
+    }
+    else if (stuff.email === 'foo@bar.baz') {setStuff({...stuff, message:`foo@bar.baz failure #${code}`, email: ''})} 
+    else if(!stuff.email.includes('@') || !stuff.email.includes('.com')){setStuff({...stuff, message: 'Ouch: email must be a valid email', email: ''})}
+    else {setStuff({...stuff, message:`${result} win #${code}`, email: ''})}
+    
+  }
+
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">
-        <h3 id="coordinates">Coordinates (2, 2)</h3>
-        <h3 id="steps">You moved 0 times</h3>
+        <h3 id="coordinates">Coordinates {stuff.coordinates}</h3>
+        <h3 id="steps">You moved {(stuff.playerMovement > 1 || stuff.playerMovement === 0 ? `${stuff.playerMovement} times` : `${stuff.playerMovement} time`)}</h3>
       </div>
       <div id="grid">
         {stuff.grid.map((item,index)=> {
@@ -290,18 +338,18 @@ export default function AppFunctional(props) {
         <div className="square"></div> */}
       </div>
       <div className="info">
-        <h3 id="message"></h3>
+        <h3 id="message">{stuff.message}</h3>
       </div>
       <div id="keypad">
-        <button id="left">LEFT</button>
-        <button id="up">UP</button>
-        <button id="right">RIGHT</button>
-        <button id="down">DOWN</button>
-        <button id="reset">reset</button>
+        <button id="left" onClick={()=>{handleLeft()}}>LEFT</button>
+        <button id="up" onClick={()=>{handleUp()}}>UP</button>
+        <button id="right" onClick={()=>{handleRight()}}>RIGHT</button>
+        <button id="down" onClick={()=>{handleDown()}}>DOWN</button>
+        <button id="reset" onClick={()=>{handleReset()}}>reset</button>
       </div>
       <form>
-        <input id="email" type="email" placeholder="type email"></input>
-        <input id="submit" type="submit"></input>
+        <input id="email" required type="email" placeholder="type email" name='email' value={stuff.email} onChange={(e)=>handleInput(e)}></input>
+        <input id="submit" type="submit" onClick={(e)=>{handleSubmit(e)}}></input>
       </form>
     </div>
   )

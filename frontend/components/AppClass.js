@@ -249,6 +249,7 @@ export default class AppClass extends React.Component {
           newGrid[5]='';
           square[5].classList.toggle('active')
           newGrid[8]='B';
+          square[8].classList.toggle('active')
           this.setState({...this.state, grid: newGrid, playerMovement: player + 1, coordinates: `(3,3)`, message: ''})
           break;
       }
@@ -262,6 +263,7 @@ export default class AppClass extends React.Component {
       playerMovement: 0,
       message: '',
       coordinates: `(2,2)`,
+      email: ''
     })
     square[0].classList.remove('active')
     square[1].classList.remove('active')
@@ -283,11 +285,27 @@ export default class AppClass extends React.Component {
   }
 
   handleSubmit(e){
-    const random = Math.floor(Math.random()* (this.state.playerMovement * 3))
+    
+    const great = this.state.coordinates
+
+    const xur = Number(great[1])
+
+    const yikes = Number(great[3])
+
+    const steps = this.state.playerMovement
+
+    const emailing = this.state.naming
+
+    const code = (((xur + 1) * (yikes + 2)) * (steps + 1)) + emailing.length
+    const awesomePerson = this.state.naming
+    const result = awesomePerson.slice(0, awesomePerson.indexOf('@'))
     e.preventDefault()
     if (this.state.email === '') {
       this.setState({...this.state, message: 'Ouch: email is required'})
-    } else {this.setState({...this.state, message: `${this.state.naming} win#${random}`, email: ''})}
+    } 
+    else if (this.state.email === 'foo@bar.baz') {this.setState({...this.state, message:`foo@bar.baz failure #${code}`, email: ''})}
+    else if(!this.state.email.includes('@') || !this.state.email.includes('.com')){this.setState({...this.state, message: 'Ouch: email must be a valid email', email: ''})}
+    else {this.setState({...this.state, message: `${result} win #${code}`, email: ''})}
     
   }
 
@@ -304,7 +322,7 @@ export default class AppClass extends React.Component {
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">Coordinates {this.state.coordinates}</h3>
-          <h3 id="steps">You moved {this.state.playerMovement} times</h3>
+          <h3 id="steps">You moved {(this.state.playerMovement > 1 || this.state.playerMovement === 0 ? `${this.state.playerMovement} times` : `${this.state.playerMovement} time`)}</h3>
         </div>
         <div id="grid">
           {this.state.grid.map((item,index)=> {
